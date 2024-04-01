@@ -1,19 +1,52 @@
-// ÀÚ·á±¸Á¶(6007) °úÁ¦ 2 (¹ÚÁøÇü 60211665)
+// ìë£Œêµ¬ì¡°(6007) ê³¼ì œ 2 (ë°•ì§„í˜• 60211665)
 package ds0326;
 
 public class Main {
     public static void main(String[] args) {
         SList<String> sl = new SList<>();
 
-        System.out.println("<< ÀÚ·á±¸Á¶(6007) °úÁ¦ 2 (¹ÚÁøÇü) >>");
+        System.out.println("<< ìë£Œêµ¬ì¡°(6007) ê³¼ì œ 2 (ë°•ì§„í˜• 60211665) >>");
         System.out.println("------------------------------------\n");
-
-        System.out.println("1> 5°³ÀÇ ¿ø¼Ò »ğÀÔ");
+        
+        System.out.println("1> 5ê°œì˜ ì›ì†Œ ì‚½ì…");
         sl.insertFront("banana");
         sl.insertFront("grape");
         sl.addLast("tomato");
         sl.addLast("apple");
         sl.addLast("mango");
+        sl.print();
+        
+        int index = sl.search("banana");
+        System.out.printf("2> banana(index %d) ë’¤ì— cherry ì‚½ì…\n", index);
+        sl.insertAfter("cherry", sl.getNode(index));
+        sl.print();
+        
+        index = sl.search("apple");
+        System.out.printf("3> apple(index %d) ì•ì— melon ì‚½ì…\n", index);
+        sl.add("melon",index);
+        sl.print();
+        
+        System.out.printf("4> index 3ìœ¼ë¡œ peach ì‚½ì…\n");
+        sl.add("peach", 3);
+        sl.print();
+        
+        index = sl.search("tomato");
+        System.out.printf("5> tomato(index %d) ë’¤ì˜ í•­ëª© ì‚­ì œ\n", index);
+        sl.deleteAfter(sl.getNode(index));
+        sl.print();
+        
+        System.out.printf("6> banana í•­ëª© ì‚­ì œ\n");
+        sl.deleteItem("banana");
+        sl.print();
+        
+        System.out.printf("7> index 3 í•­ëª© ì‚­ì œ\n");
+        sl.delete(3);
+        sl.print();
+        
+        System.out.println("8> ë§¨ ì•ì˜ ì›ì†Œ 3ê°œ ì œê±°");
+        sl.deleteFront();
+        sl.deleteFront();
+        sl.deleteFront();
         sl.print();
     }
 }

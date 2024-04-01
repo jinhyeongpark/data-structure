@@ -1,46 +1,50 @@
-// ÀÚ·á±¸Á¶(6007) °úÁ¦ 2 (¹ÚÁøÇü 60211665)
+// ìë£Œêµ¬ì¡°(6007) ê³¼ì œ 2 (ë°•ì§„í˜• 60211665)
 package ds0326;
 
 import java.util.NoSuchElementException;
 
 public class SList<E extends Comparable<E>> {
-    protected Node head; //¿¬°á ¸®½ºÆ®ÀÇ Ã¹ ³ëµå °¡¸®Å´
+    protected Node head; //ì—°ê²° ë¦¬ìŠ¤íŠ¸ì˜ ì²« ë…¸ë“œ ê°€ë¦¬í‚´
     private int size;
 
     public SList() {
-        head = null; //Ã¹ ³ëµå¸¦ null ·Î ÃÊ±âÈ­
-        size = 0; //³ëµå ¼ö¸¦ ÀúÀåÇÏ´Â size ¸¦ 0À¸·Î ÃÊ±âÈ­
+        head = null; //ì²« ë…¸ë“œë¥¼ null ë¡œ ì´ˆê¸°í™”
+        size = 0; //ë…¸ë“œ ìˆ˜ë¥¼ ì €ì¥í•˜ëŠ” size ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”
     }
-    //Å½»ö, »ğÀÔ, »èÁ¦ ¿¬»êÀ» À§ÇÑ ¸Ş¼Òµå ¼±¾ğ
+    //íƒìƒ‰, ì‚½ì…, ì‚­ì œ ì—°ì‚°ì„ ìœ„í•œ ë©”ì†Œë“œ ì„ ì–¸
     public int search(E target) {
-        Node p = head; //headºÎÅÍ Å½»ö ½ÃÀÛ
+        Node p = head; //headë¶€í„° íƒìƒ‰ ì‹œì‘
         for (int k = 0; k < size; k++) {
             //if(target == p.getItem())
             if(target.compareTo((E) p.getItem())==0)
                 return k;
-            p = p.getNext(); //´ÙÀ½ ³ëµå¸¦ È£Ãâ
+            p = p.getNext(); //ë‹¤ìŒ ë…¸ë“œë¥¼ í˜¸ì¶œ
         }
-        return -1; //Å½»ö ½ÇÆĞÇÑ °æ¿ì -1 ¹İÈ¯
+        return -1; //íƒìƒ‰ ì‹¤íŒ¨í•œ ê²½ìš° -1 ë°˜í™˜
     }
     public void insertFront(E newItem) {
-        head = new Node(newItem, head); //»õ ³ëµå¸¦ ¸¸µé¾î itemÀ» ´ã°í ´ÙÀ½ ³ëµå·Î ¿ø·¡ head¸¦ ÁöÁ¤
-        size++; //Ç×¸ñ ¼ö Áõ°¡
+        head = new Node(newItem, head); //ìƒˆ ë…¸ë“œë¥¼ ë§Œë“¤ì–´ itemì„ ë‹´ê³  ë‹¤ìŒ ë…¸ë“œë¡œ ì›ë˜ headë¥¼ ì§€ì •
+        size++; //í•­ëª© ìˆ˜ ì¦ê°€
     }
-    public void insertAfter(E newItem, Node p) { //Ãß°¡ÇÒ item°ú Ãß°¡ÇÒ À§Ä¡ p
-        p.setNext(new Node(newItem, p.getNext())); //pÀÇ ´ÙÀ½ ³ëµå¸¦ ÀÚ½ÅÀÇ ´ÙÀ½ ³ëµå·Î ¼³Á¤ÇÑ ÈÄ ÀÚ½ÅÀÇ pÀÇ ´ÙÀ½À¸·Î µé¾î°¨
-        size++; //Ç×¸ñ ¼ö Áõ°¡
+    public void insertAfter(E newItem, Node p) { //ì¶”ê°€í•  itemê³¼ ì¶”ê°€í•  ìœ„ì¹˜ p
+        p.setNext(new Node(newItem, p.getNext())); //pì˜ ë‹¤ìŒ ë…¸ë“œë¥¼ ìì‹ ì˜ ë‹¤ìŒ ë…¸ë“œë¡œ ì„¤ì •í•œ í›„ ìì‹ ì˜ pì˜ ë‹¤ìŒìœ¼ë¡œ ë“¤ì–´ê°
+        size++; //í•­ëª© ìˆ˜ ì¦ê°€
     }
     public void deleteFront() {
-        //if (isEmpty()) throw new NoSuchElementException();
-        head = head.getNext(); //headÀÇ ´ÙÀ½ node¸¦ head·Î ÁöÁ¤
-        size--; //Ç×¸ñ ¼ö °¨
+        if (isEmpty()) throw new NoSuchElementException();
+        head = head.getNext(); //headì˜ ë‹¤ìŒ nodeë¥¼ headë¡œ ì§€ì •
+        size--; //í•­ëª© ìˆ˜ ê°
     }
-    public void deleteAfter(Node p) {
+    private boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return size == 0;
+	}
+	public void deleteAfter(Node p) {
         if(p == null) throw new NoSuchElementException();
-        Node t = p.getNext(); //pÀÇ ´ÙÀ½À» t·Î ¼³Á¤
-        p.setNext(t.getNext()); //pÀÇ ´ÙÀ½ ÀÚ¸®: t -> t.next()
-        t.setNext(null); //t¸¦ null·Î ¼³Á¤
-        size--; //Ç×¸ñ ¼ö °¨¼Ò
+        Node t = p.getNext(); //pì˜ ë‹¤ìŒì„ të¡œ ì„¤ì •
+        p.setNext(t.getNext()); //pì˜ ë‹¤ìŒ ìë¦¬: t -> t.next()
+        t.setNext(null); //të¥¼ nullë¡œ ì„¤ì •
+        size--; //í•­ëª© ìˆ˜ ê°ì†Œ
     }
     public Node<E> getNode(int index) {
         if (index < 0 || index >= size) {
@@ -48,9 +52,9 @@ public class SList<E extends Comparable<E>> {
         }
         Node<E> p = head;
         for (int i = 0; i < index; i++) {
-            p = p.getNext(); // ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â ³ëµå±îÁö ÀÌµ¿
+            p = p.getNext(); // ì¸ë±ìŠ¤ì— í•´ë‹¹í•˜ëŠ” ë…¸ë“œê¹Œì§€ ì´ë™
         }
-        return p; // ÇØ´ç ÀÎµ¦½ºÀÇ ¿ä¼Ò ¹İÈ¯
+        return p; // í•´ë‹¹ ì¸ë±ìŠ¤ì˜ ìš”ì†Œ ë°˜í™˜
     }
 
     public void add(E newItem, int index) {
@@ -58,25 +62,24 @@ public class SList<E extends Comparable<E>> {
             throw new IndexOutOfBoundsException();
         }
         if (index == 0) {
-            insertFront(newItem); // ¸Ç ¾Õ¿¡ »ğÀÔ
+            insertFront(newItem); // ë§¨ ì•ì— ì‚½ì…
         } else {
             Node<E> p = head;
             for (int i = 0; i < index - 1; i++) {
-                p = p.getNext(); // »ğÀÔÇÒ À§Ä¡ÀÇ ÀÌÀü ³ëµå Ã£±â
+                p = p.getNext(); // ì‚½ì…í•  ìœ„ì¹˜ì˜ ì´ì „ ë…¸ë“œ ì°¾ê¸°
             }
-            insertAfter(newItem, p); // ÀÌÀü ³ëµå µÚ¿¡ »ğÀÔ
+            insertAfter(newItem, p); // ì´ì „ ë…¸ë“œ ë’¤ì— ì‚½ì…
         }
     }
     public void addLast(E newItem) {
         if (head == null) {
-            System.out.println("addLast¿¡¼­ head == null »óÈ²");
-            insertFront(newItem); // ¸®½ºÆ®°¡ ºñ¾îÀÖÀ¸¸é ¸Ç ¾Õ¿¡ »ğÀÔ
+            insertFront(newItem); // ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆìœ¼ë©´ ë§¨ ì•ì— ì‚½ì…
         } else {
             Node<E> p = head;
             while (p.getNext() != null) {
-                p = p.getNext(); // ¸¶Áö¸· ³ëµå Ã£±â
+                p = p.getNext(); // ë§ˆì§€ë§‰ ë…¸ë“œ ì°¾ê¸°
             }
-            insertAfter(newItem, p); // ¸¶Áö¸· ³ëµå µÚ¿¡ »ğÀÔ
+            insertAfter(newItem, p); // ë§ˆì§€ë§‰ ë…¸ë“œ ë’¤ì— ì‚½ì…
         }
     }
     public void delete(int index) {
@@ -84,31 +87,30 @@ public class SList<E extends Comparable<E>> {
             throw new IndexOutOfBoundsException();
         }
         if (index == 0) {
-            deleteFront(); // ¸Ç ¾ÕÀÇ Ç×¸ñ »èÁ¦
+            deleteFront(); // ë§¨ ì•ì˜ í•­ëª© ì‚­ì œ
         } else {
             Node<E> p = head;
             for (int i = 0; i < index - 1; i++) {
-                p = p.getNext(); // »èÁ¦ÇÒ Ç×¸ñÀÇ ÀÌÀü ³ëµå Ã£±â
+                p = p.getNext(); // ì‚­ì œí•  í•­ëª©ì˜ ì´ì „ ë…¸ë“œ ì°¾ê¸°
             }
-            deleteAfter(p); // »èÁ¦ÇÒ Ç×¸ñÀÇ ÀÌÀü ³ëµå ´ÙÀ½ Ç×¸ñ »èÁ¦
-            size--;
+            deleteAfter(p); // ì‚­ì œí•  í•­ëª©ì˜ ì´ì „ ë…¸ë“œ ë‹¤ìŒ í•­ëª© ì‚­ì œ
         }
     }
     public void deleteItem(E item) {
         if (head == null) {
-            return; // ¸®½ºÆ®°¡ ºñ¾îÀÖÀ¸¸é ¾Æ¹« ÀÛ¾÷µµ ¼öÇàÇÏÁö ¾ÊÀ½
+            return; // ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆìœ¼ë©´ ì•„ë¬´ ì‘ì—…ë„ ìˆ˜í–‰í•˜ì§€ ì•ŠìŒ
         }
         if (head.getItem().equals(item)) {
-            deleteFront(); // ¸Ç ¾ÕÀÇ Ç×¸ñÀÌ »èÁ¦ ´ë»óÀÎ °æ¿ì
+            deleteFront(); // ë§¨ ì•ì˜ í•­ëª©ì´ ì‚­ì œ ëŒ€ìƒì¸ ê²½ìš°
             return;
         }
         Node<E> prev = head;
         Node<E> current = head.getNext();
         while (current != null) {
             if (current.getItem().equals(item)) {
-                prev.setNext(current.getNext()); // »èÁ¦ ´ë»óÀ» °Ç³Ê¶Ù°í ¿¬°á
-                current.setNext(null); // »èÁ¦ ´ë»óÀ» ¿¬°á ÇØÁ¦
-                size--; // Ç×¸ñ ¼ö °¨¼Ò
+                prev.setNext(current.getNext()); // ì‚­ì œ ëŒ€ìƒì„ ê±´ë„ˆë›°ê³  ì—°ê²°
+                current.setNext(null); // ì‚­ì œ ëŒ€ìƒì„ ì—°ê²° í•´ì œ
+                size--; // í•­ëª© ìˆ˜ ê°ì†Œ
                 return;
             }
             prev = current;
@@ -117,11 +119,12 @@ public class SList<E extends Comparable<E>> {
     }
     public void print() {
         Node<E> current = head;
-        System.out.print("Ç×¸ñ¼ö(" + size + ") : ");
+        System.out.print("í•­ëª©ìˆ˜(" + size + ") : ");
         while (current != null) {
-            System.out.print(current.getItem() + " "); // ÇöÀç ³ëµåÀÇ ¿ä¼Ò Ãâ·Â
-            current = current.getNext(); // ´ÙÀ½ ³ëµå·Î ÀÌµ¿
+            System.out.print(current.getItem() + " "); // í˜„ì¬ ë…¸ë“œì˜ ìš”ì†Œ ì¶œë ¥
+            current = current.getNext(); // ë‹¤ìŒ ë…¸ë“œë¡œ ì´ë™
         }
-        System.out.println(); // Ãâ·Â Á¾·á ÈÄ ÁÙ ¹Ù²Ş
+        System.out.println(); // ì¶œë ¥ ì¢…ë£Œ í›„ ì¤„ ë°”ê¿ˆ
+        System.out.println();
     }
 }
