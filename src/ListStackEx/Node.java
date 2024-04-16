@@ -1,4 +1,4 @@
-// ìë£Œêµ¬ì¡°(6007) ê³¼ì œ #4 (60211665 ë°•ì§„í˜•)
+// ÀÚ·á±¸Á¶(6007) °úÁ¦ #5 (60211665 ¹ÚÁøÇü)
 package ListStackEx;
 
 public class Node<E extends Comparable<E>> {
@@ -6,10 +6,10 @@ public class Node<E extends Comparable<E>> {
     private Node<E> next;
 
     public Node(E newItem, Node<E> p) {
-        item = newItem; //ë‹´ì„ item
-        next = p; //ë‹¤ìŒìœ¼ë¡œ ì—°ê²°ë  node
+        item = newItem; //´ãÀ» item
+        next = p; //´ÙÀ½À¸·Î ¿¬°áµÉ node
     }
-    //getter, setter ë©”ì†Œë“œ
+    //getter, setter ¸Ş¼Òµå
     public E getItem() {return item;}
     public Node<E> getNext() {return next;}
     public void setItem(E newItem) {item = newItem;}

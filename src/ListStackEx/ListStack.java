@@ -1,7 +1,7 @@
-// ìë£Œêµ¬ì¡°(6007) ê³¼ì œ #4 (60211665 ë°•ì§„í˜•)
+// ÀÚ·á±¸Á¶(6007) °úÁ¦ #5 (60211665 ¹ÚÁøÇü)
 package ListStackEx;
 
-import java.util.EmptyStackException; //ë¹ˆ ìŠ¤íƒì„ ì½ìœ¼ë ¤ í•  ë•Œ
+import java.util.EmptyStackException; //ºó ½ºÅÃÀ» ÀĞÀ¸·Á ÇÒ ¶§
 
 public class ListStack<E extends Comparable<E>> {
     public Node<E> top;
@@ -13,21 +13,24 @@ public class ListStack<E extends Comparable<E>> {
     }
     public int size() {return size;}
     public boolean isEmpty() {return(top == null);}
-    //peek, push, pop ì„ ì–¸
+    //peek, push, pop ¼±¾ğ
     public E peek() {
         if (isEmpty()) throw new EmptyStackException();
         return top.getItem();
     }
     public void push(E newItem) {
-        Node newNode = new Node(newItem, top); //top ë ˆí¼ëŸ°ìŠ¤ë¥¼ next ì— ë³µì‚¬
+        //newNode°¡ topÀ» ´ÙÀ½À¸·Î ¹Ù¶óº¸°Ô ÇÔ
+        Node newNode = new Node(newItem, top);
+        //newNode¸¦ topÀ¸·Î ÁöÁ¤
         top = newNode;
         size++;
     }
     public E pop() {
         if (isEmpty()) throw new EmptyStackException();
-        E topItem = top.getItem(); //top ì˜ item ì„ topItemì— ì €ì¥
-        top = top.getNext(); //top ì´ top ì˜ ë‹¤ìŒì„ ê°€ë¦¬í‚¤ê²Œ í•¨
-        size--; //í•­ëª© ìˆ˜ ê°ì†Œ
-        return topItem; //topItem ë°˜í™˜
+        E topItem = top.getItem(); //top ÀÇ item À» topItem¿¡ ÀúÀå
+        //topÀÇ ´ÙÀ½ ¿ø¼Ò¸¦ topÀ¸·Î ÁöÁ¤
+        top = top.getNext();
+        size--; //Ç×¸ñ ¼ö °¨¼Ò
+        return topItem; //topItem ¹İÈ¯
     }
 }
