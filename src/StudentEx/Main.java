@@ -1,4 +1,4 @@
-package ds0312;
+package StudentEx;
 
 import java.util.Arrays;
 public class Main {

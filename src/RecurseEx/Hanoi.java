@@ -1,5 +1,5 @@
 // 자료구조(6007) 과제 1 (60211665 박진형)
-package ds0319;
+package RecurseEx;
 
 import java.util.ArrayList;
 import java.util.List;

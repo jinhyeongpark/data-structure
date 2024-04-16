@@ -1,5 +1,5 @@
 // 자료구조(6007) 과제 2 (박진형 60211665)
-package ds0326;
+package SListEx;
 
 public class Node<E extends Comparable<E>> {
     private E item;

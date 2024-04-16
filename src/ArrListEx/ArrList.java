@@ -1,5 +1,5 @@
 // 수업참여0321-박진형60211665
-package ds0321;
+package ArrListEx;
 
 import java.util.NoSuchElementException;
 
@@ -12,9 +12,12 @@ public class ArrList<E> {
         size = 0; //초기 리스트 항목 수 0
     }
     public E peek(int k) {
-        if (k >= size) //리스트 항목 수가 0일 때 peek
-            throw new NoSuchElementException(); //empty를 읽어 발생하는 underflow 방지
+        if (isEmpty()) //리스트 항목 수가 0일 때
+            throw new NoSuchElementException();
         return a[k]; //k 인덱스의 위치의 항목 반환
+    }
+    public boolean isEmpty() {
+        return size == 0;
     }
     public void insertLast(E newItem) {
         if(size == a.length) //용량와 항목 수가 같음 즉, 꽉 찬 상태
@@ -34,7 +37,7 @@ public class ArrList<E> {
     public void resize(int newSize) {
         Object[] t = new Object[newSize]; //newSize 크기의 배열 t 생성
         for(int i = 0; i < size; i++) t[i]= a[i]; //a 를 t 에 옮김
-        a = (E[]) t; //E타입으로 다캐스팅한 t 를 a 에 대입
+        a = (E[]) t; //E타입으로 캐스팅한 t 를 a 에 대입
     }
     public E delete(int k) {
         if(k >= size) throw new NoSuchElementException();
@@ -57,26 +60,4 @@ public class ArrList<E> {
         }
         System.out.println();
     }
-
-    public static void main(String[] args) {
-        ArrList<String> s = new ArrList<>();
-
-        s.insertLast("apple"); s.print();
-        s.insertLast("orange"); s.print();
-        s.insertLast("cherry"); s.print();
-        s.insertLast("pear"); s.print();
-        s.insert("grape", 1); s.print();
-        s.insert("lemon", 4); s.print();
-        s.insertLast("kiwi"); s.print();
-
-        s.delete(4); s.print();
-        s.delete(0); s.print();
-        s.delete(0); s.print();
-        s.delete(3); s.print();
-        s.delete(0); s.print();
-
-        System.out.println("1번째 항목은 " + s.peek(1)+ "이다.");
-        System.out.println();
-
-        }
-    }
+}

@@ -1,5 +1,5 @@
 // 수업참여0312-박진형60211665
-package ds0312;
+package StudentEx;
 
 import java.util.Comparator;
 

@@ -1,5 +1,5 @@
 // 자료구조(6007) 과제 2 (박진형 60211665)
-package ds0326;
+package SListEx;
 
 import java.util.NoSuchElementException;
 
@@ -16,7 +16,7 @@ public class SList<E extends Comparable<E>> {
         Node p = head; //head부터 탐색 시작
         for (int k = 0; k < size; k++) {
             //if(target == p.getItem())
-            if(target.compareTo((E) p.getItem())==0)
+            if(target.compareTo((E)p.getItem())==0)
                 return k;
             p = p.getNext(); //다음 노드를 호출
         }
