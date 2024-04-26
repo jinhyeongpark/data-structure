@@ -36,19 +36,17 @@ public class BinaryTree<Key extends Comparable<Key>> {
             System.out.println(n.getKey() + " ");
         }
     }
-    public void levelorder(Node n) {
-        if(n != null) {
-            Queue<Node> q = new LinkedList();
-            Node t;
-            q.add(root);
-            while(!q.isEmpty()) {
-                t = q.remove();
-                System.out.println(t.getKey() + " ");
-                if(t.getLeft() != null)
-                    q.add(t.getLeft());
-                if(t.getRight() != null)
-                    q.add(t.getRight());
-            }
+    public void levelorder(Node root) {
+        Queue<Node> q = new LinkedList();
+        Node t;
+        q.add(root);
+        while(!q.isEmpty()) {
+            t = q.remove();
+            System.out.println(t.getKey() + " ");
+            if(t.getLeft() != null)
+                q.add(t.getLeft());
+            if(t.getRight() != null)
+                q.add(t.getRight());
         }
     }
     public int size(Node n) {

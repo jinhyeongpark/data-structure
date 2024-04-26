@@ -32,6 +32,7 @@ public class Student implements Comparable<Student>{
     public int compareTo(Student s) {
         return this.id -s.id;
     }
+
     // 이름으로 비교하는 compare()
     public static Comparator<Student> CompName = new Comparator<Student>() {
         @Override

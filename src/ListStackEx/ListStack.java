@@ -11,7 +11,6 @@ public class ListStack<E extends Comparable<E>> {
         top = null;
         size = 0;
     }
-    public int size() {return size;}
     public boolean isEmpty() {return(top == null);}
     //peek, push, pop ¼±¾ð
     public E peek() {

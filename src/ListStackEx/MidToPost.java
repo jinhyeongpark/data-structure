@@ -50,7 +50,11 @@ public class MidToPost {
     public static void main(String[] args) {
         System.out.println("<< 자료구조(6007) 과제 #5 (60211665 박진형) >>");
 
-        String str = new String("A-B+C/D");
+        String str = new String("A*(B+C/D)");
+        System.out.println("중위표기법: " + str);
+        System.out.println("후위표기법: " + toPostExp(str) + "\n");
+
+        str = new String("A-B+C/D");
         System.out.println("중위표기법: " + str);
         System.out.println("후위표기법: " + toPostExp(str) + "\n");
 
