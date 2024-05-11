@@ -1,3 +1,4 @@
+// 자료구조(6007) 과제 #6 (60211665 박진형)
 package TreeEx;
 
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
 
     public void preorder(Node n) {
         if(n != null) {
-            System.out.println(n.getKey() + " "); //자기 자신
+            System.out.print(n.getKey() + " "); //자기 자신
             preorder(n.getLeft()); //왼쪽
             preorder(n.getRight()); //오른
         }
@@ -25,7 +26,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
     public void inorder(Node n) {
         if(n != null) {
             inorder(n.getLeft()); //왼쪽
-            System.out.println(n.getKey() + " "); //자기 자신
+            System.out.print(n.getKey() + " "); //자기 자신
             inorder(n.getRight()); //오른
         }
     }
@@ -33,7 +34,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
         if(n != null) {
             postorder(n.getLeft());
             postorder(n.getRight());
-            System.out.println(n.getKey() + " ");
+            System.out.print(n.getKey() + " ");
         }
     }
     public void levelorder(Node root) {
@@ -42,7 +43,7 @@ public class BinaryTree<Key extends Comparable<Key>> {
         q.add(root);
         while(!q.isEmpty()) {
             t = q.remove();
-            System.out.println(t.getKey() + " ");
+            System.out.print(t.getKey() + " ");
             if(t.getLeft() != null)
                 q.add(t.getLeft());
             if(t.getRight() != null)
@@ -71,5 +72,14 @@ public class BinaryTree<Key extends Comparable<Key>> {
 
         return(isEqual(n.getLeft(), m.getLeft())) && //n과 m의 각 왼쪽을 비교
             (isEqual(n.getRight(), m.getRight())); //n과 m의 각 오른쪽을 비교
+    }
+    public Node copy(Node n) {
+        if(n == null) return null;
+        else {
+            Node newNode = new Node(n.getKey(), null, null);
+            newNode.setLeft(copy(n.getLeft()));
+            newNode.setRight(copy(n.getRight()));
+            return newNode;
+        }
     }
 }
