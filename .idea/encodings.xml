@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/AVLEx/AVL.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/AVLEx/Main.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/ArrListEx/ArrList.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/ArrListEx/Main.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/BSTEx/Main.java" charset="x-windows-949" />
@@ -19,5 +21,6 @@
     <file url="file://$PROJECT_DIR$/src/StudentEx/Main.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/StudentEx/Student.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/TreeEx/Main.java" charset="x-windows-949" />
+    <file url="PROJECT" charset="x-windows-949" />
   </component>
 </project>
